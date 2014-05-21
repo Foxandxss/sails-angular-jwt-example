@@ -1,0 +1,31 @@
+<form name="registerForm" class="form-signin" novalidate>
+  <div class="control-group">
+    <input type="email" class="form-control" placeholder="email" name="email" ng-model="user.email" required>
+    <div ng-show="registerForm.email.$dirty" ng-messages="registerForm.email.$error">
+      <div ng-message="required">
+        You forgot the email address.
+      </div>
+      <div ng-message="email">
+        That is not a well formed email address.
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <input type="password" class="form-control" placeholder="password" name="password" ng-model="user.password" required>
+    <div ng-show="registerForm.password.$dirty" ng-messages="registerForm.password.$error">
+      <div ng-message="required">
+        You forgot the password.
+      </div>
+    </div>
+  </div>
+  <div class="control-group">
+    <input type="password" class="form-control" placeholder="confirm password" name="confirmpassword" ng-model="user.confirmPassword" required>
+    <div ng-show="registerForm.confirmpassword.$dirty" ng-messages="registerForm.confirmpassword.$error">
+      <div ng-message="required">
+        You forgot the password confirmation.
+      </div>
+    </div>
+  </div>
+
+  <input type="submit" class="btn btn-lg btn-primary btn-block" ng-click="register()" value="Create Account" />
+</form>

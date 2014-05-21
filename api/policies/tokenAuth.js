@@ -19,19 +19,19 @@ module.exports = function(req, res, next) {
       if (/^Bearer$/i.test(scheme)) {
         token = credentials;
       }
+    } else {
+      return res.json(401, {err: 'Format is Authorization: Bearer [token]'});
     }
+  } else if (req.param('token')) {
+    token = req.param('token');
   } else {
-    return res.json(403, {err: 'No Authorization header was found'});
+    return res.json(401, {err: 'No Authorization header was found'});
   }
 
-  sailsTokenAuth.verifyToken(token, function(err, userId) {
-    if (err) return res.json(403, {err: 'The token is not valid'});
+  sailsTokenAuth.verifyToken(token, function(err, token) {
+    if (err) return res.json(401, {err: 'The token is not valid'});
 
-    User.findOne(userId, function(err, user) {
-      if (err) return res.json(403, {err: 'The user doesn\'t exist'});
-
-      req.user = user;
-    });
+    req.token = token;
 
     next();
   });

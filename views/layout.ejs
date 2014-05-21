@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <title>New Sails App</title>
 
@@ -29,40 +29,14 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
 
   <body>
+
     <%- body %>
-
-
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/linker/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-        
-        To customize this behavior to fit your needs, just edit your Gruntfile.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
-
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
-
 
     <!--
 
@@ -89,8 +63,46 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/angular.js"></script>
-    <script src="/js/dependencies/angular-route.js"></script>
+    <script src="/js/dependencies/angular-messages.js"></script>
+    <script src="/js/dependencies/angular-ui-router.js"></script>
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/services/accessLevels.js"></script>
+    <script src="/js/controllers/loginController.js"></script>
+    <script src="/js/controllers/messagesController.js"></script>
+    <script src="/js/controllers/navController.js"></script>
+    <script src="/js/controllers/registerController.js"></script>
+    <script src="/js/routes.js"></script>
+    <script src="/js/services/auth.js"></script>
+    <script src="/js/services/currentUser.js"></script>
+    <script src="/js/services/localStorage.js"></script>
+    <script src="/js/services/messagesRepository.js"></script>
     <!--SCRIPTS END-->
+
+    <!--
+          Client-side Templates
+          ========================
+
+          HTML templates are important prerequisites of modern, rich client applications.
+          To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+          that you load these templates client-side.
+
+          By default, your Gruntfile is configured to automatically load and precompile
+          client-side JST templates in your `assets/linker/templates` folder, then
+          include them here automatically (between TEMPLATES and TEMPLATES END).
+
+          To customize this behavior to fit your needs, just edit your Gruntfile.
+          For example, here are a few things you could do:
+
+              + Import templates from other directories
+              + Use a different template engine (handlebars, jade, dust, etc.)
+              + Internationalize your client-side templates using a server-side
+                stringfile before they're served.
+      -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/templates.js"></script>
+    <!--TEMPLATES END-->
   </body>
 </html>

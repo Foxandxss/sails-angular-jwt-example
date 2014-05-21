@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <ul class="col-md-4 list-group">
+      <li class="list-group-item" ng-repeat="message in messages">
+        {{message.body}}
+        <span class="badge">
+          <span class="delete-button" ng-click="deleteMessage(message)">X</span>
+        </span>
+      </li>
+    </ul>
+
+    <form name="newMessageForm" novalidate class="col-md-4 form-inline">
+      <div class="input-group">
+        <input class="form-control" type="text" name="body" ng-model="newMessage" placeholder="New message">
+        <span class="input-group-btn">
+          <button class="btn btn-default btn-primary" ng-click="createMessage()">Create Message</button>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

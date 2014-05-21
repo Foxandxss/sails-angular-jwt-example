@@ -20,8 +20,13 @@ module.exports.policies = {
   // (`true` allows public access)
   '*': true,
 
-  'FooController': {
-    'restricted': 'sessionAuth'
+  'UserController': {
+    'add': ['tokenAuth', 'ownAssociations'],
+    'create': true,
+    'findOne': ['tokenAuth', 'ownUser'],
+    'populate': ['tokenAuth', 'ownAssociations'],
+    'remove': ['tokenAuth', 'ownAssociations'],
+    '*': false
   }
 
 	// Here's an example of mapping some policies to run before

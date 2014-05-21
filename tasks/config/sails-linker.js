@@ -132,21 +132,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Bring in JST template object
-		devTpl: {
-			options: {
-				startTag: '<!--TEMPLATES-->',
-				endTag: '<!--TEMPLATES END-->',
-				fileTmpl: '<script type="text/javascript" src="%s"></script>',
-				appRoot: '.tmp/public'
-			},
-			files: {
-				'.tmp/public/index.html': ['.tmp/public/jst.js'],
-				'views/**/*.html': ['.tmp/public/jst.js'],
-				'views/**/*.ejs': ['.tmp/public/jst.js']
-			}
-		},
-
 		devJsJade: {
 			options: {
 				startTag: '// SCRIPTS',
@@ -260,7 +245,22 @@ module.exports = function(grunt) {
 			files: {
 				'views/**/*.jade': ['.tmp/public/jst.js']
 			}
-		}
+		},
+
+    // Bring in html2js/angular template cache template object
+    devTpl: {
+      options: {
+        startTag: '<!--TEMPLATES-->',
+        endTag: '<!--TEMPLATES END-->',
+        fileTmpl: '<script type="text/javascript" src="%s"></script>',
+        appRoot: '.tmp/public'
+      },
+      files: {
+        '.tmp/public/index.html': ['.tmp/public/templates.js'],
+        'views/**/*.html': ['.tmp/public/templates.js'],
+        'views/**/*.ejs': ['.tmp/public/templates.js']
+      }
+    }
 	});
 
 	grunt.loadNpmTasks('grunt-sails-linker');
