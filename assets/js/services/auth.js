@@ -47,6 +47,7 @@ angular.module('app')
       },
       responseError: function(response) {
         if (response.status === 401 || response.status === 403) {
+          LocalService.unset('auth_token');
           $injector.get('$state').go('anon.login');
         }
         return $q.reject(response);

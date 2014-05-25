@@ -24,6 +24,8 @@ module.exports = function(req, res, next) {
     }
   } else if (req.param('token')) {
     token = req.param('token');
+    // We delete the token from param to not mess with blueprints
+    delete req.query.token;
   } else {
     return res.json(401, {err: 'No Authorization header was found'});
   }
