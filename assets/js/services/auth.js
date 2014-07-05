@@ -33,9 +33,10 @@ angular.module('app')
     }
   })
   .factory('AuthInterceptor', function($q, $injector) {
+    var LocalService = $injector.get('LocalService');
+
     return {
       request: function(config) {
-        var LocalService = $injector.get('LocalService');
         var token;
         if (LocalService.get('auth_token')) {
           token = angular.fromJson(LocalService.get('auth_token')).token;
