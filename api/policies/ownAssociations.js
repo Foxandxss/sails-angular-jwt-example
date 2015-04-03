@@ -3,7 +3,7 @@ module.exports = function(req, res, next) {
   var currentUserId = req.token.sid;
 
   if (userId != currentUserId) {
-    return res.json(400, {err: 'You are not allowed to do that'}); // Is 400 correct here?
+    return res.json(403, {err: 'You are not allowed to do that'});
   }
 
   next();
