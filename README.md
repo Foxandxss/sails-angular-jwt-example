@@ -1,6 +1,7 @@
 # Angular Messages
 
 `Angular Messages` is a demo application to show how to implement `JWT` authentication with a `Sails` backend and an `Angular` frontend.
+[Read full article](http://angular-tips.com/blog/2014/05/json-web-tokens-examples/)
 
 If you want to try it, you need to do the following:
 
@@ -24,4 +25,3 @@ Register yourself and write some messages.
 * Socket.io integration.
 * Maybe different levels of authorization (i.e admin).
 * Token expiration.
-* Write a proper article about JWT and another about this demo.
